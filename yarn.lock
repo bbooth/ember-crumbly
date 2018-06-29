@@ -2292,6 +2292,13 @@ ember-cli-sri@^2.1.0:
   dependencies:
     broccoli-sri-hash "^2.1.0"
 
+ember-cli-string-helpers@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-string-helpers/-/ember-cli-string-helpers-1.9.0.tgz#2c1605bc5768ff58cecd2fa1bd0d13d81e47f3d3"
+  dependencies:
+    broccoli-funnel "^1.0.1"
+    ember-cli-babel "^6.6.0"
+
 ember-cli-string-utils@^1.0.0, ember-cli-string-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-string-utils/-/ember-cli-string-utils-1.1.0.tgz#39b677fc2805f55173735376fcef278eaa4452a1"
@@ -2315,7 +2322,7 @@ ember-cli-valid-component-name@^1.0.0:
   dependencies:
     silent-error "^1.0.0"
 
-ember-cli-version-checker@^1.0.2, ember-cli-version-checker@^1.2.0:
+ember-cli-version-checker@^1.0.2:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-1.3.1.tgz#0bc2d134c830142da64bf9627a0eded10b61ae72"
   dependencies:
@@ -2426,19 +2433,18 @@ ember-export-application-global@^2.0.0:
   dependencies:
     ember-cli-babel "^6.0.0-beta.7"
 
-ember-factory-for-polyfill@^1.1.0:
+ember-factory-for-polyfill@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/ember-factory-for-polyfill/-/ember-factory-for-polyfill-1.3.1.tgz#b446ed64916d293c847a4955240eb2c993b86eae"
   dependencies:
     ember-cli-version-checker "^2.1.0"
 
-ember-getowner-polyfill@^1.2.3:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.2.5.tgz#ceff8a09897d0d7e05c821bb71666a95eb26dc92"
+ember-getowner-polyfill@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-2.2.0.tgz#38e7dccbcac69d5ec694000329ec0b2be651d2b2"
   dependencies:
-    ember-cli-babel "^5.1.6"
-    ember-cli-version-checker "^1.2.0"
-    ember-factory-for-polyfill "^1.1.0"
+    ember-cli-version-checker "^2.1.0"
+    ember-factory-for-polyfill "^1.3.1"
 
 ember-load-initializers@^1.0.0:
   version "1.1.0"
@@ -4001,7 +4007,7 @@ js-yaml@~3.4.0:
     esprima "^2.6.0"
     inherit "^2.2.2"
 
-"jscs-ember-deprecations@github:brzpegasus/jscs-ember-deprecations#5749615":
+jscs-ember-deprecations@brzpegasus/jscs-ember-deprecations#5749615:
   version "0.0.27"
   resolved "https://codeload.github.com/brzpegasus/jscs-ember-deprecations/tar.gz/57496156fd4726089929aba41f6d481365140645"
   dependencies:

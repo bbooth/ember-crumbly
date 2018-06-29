@@ -1,5 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/bread-crumbs';
+import {inject as service} from '@ember/service';
+import titleize from 'ember-cli-string-helpers/utils/titleize';
 
 const {
   get,
@@ -14,7 +16,7 @@ const {
   setProperties,
   getOwner,
   A: emberArray,
-  String: { classify }
+  String: {classify}
 } = Ember;
 const {
   bool,
@@ -27,12 +29,14 @@ export default Component.extend({
   linkable: true,
   reverse: false,
   classNameBindings: ['breadCrumbClass'],
+  router: service('router'),
   hasBlock: bool('template').readOnly(),
-  currentUrl: readOnly('applicationRoute.router.url'),
-  currentRouteName: readOnly('applicationRoute.controller.currentRouteName'),
+  currentUrl: readOnly('router.currentURL'),
+  currentRouteName: readOnly('router.currentRouteName'),
 
   routeHierarchy: computed('currentUrl', 'currentRouteName', 'reverse', {
     get() {
+      // console.log('routeHierarchy', this.router, get(this, 'currentUrl'), get(this, 'currentRouteName'), get(this, 'reverse'));
       const currentRouteName = getWithDefault(this, 'currentRouteName', false);
 
       assert('[ember-crumbly] Could not find a current route', currentRouteName);
@@ -50,7 +54,7 @@ export default Component.extend({
       let className = 'breadcrumb';
       const outputStyle = getWithDefault(this, 'outputStyle', '');
       if (isPresent(outputStyle)) {
-        deprecate('outputStyle option will be deprecated in the next major release', false, { id: 'ember-crumbly.outputStyle', until: '2.0.0' });
+        deprecate('outputStyle option will be deprecated in the next major release', false, {id: 'ember-crumbly.outputStyle', until: '2.0.0'});
       }
       const lowerCaseOutputStyle = outputStyle.toLowerCase();
 
@@ -63,10 +67,11 @@ export default Component.extend({
   }).readOnly(),
 
   _guessRoutePath(routeNames, name, index) {
+    // console.log('_guessRoutePath', routeNames, name, index);
     const routes = routeNames.slice(0, index + 1);
 
     if (routes.length === 1) {
-      let path = `${name}.index`;
+      let path = `${name}`;
 
       return (this._lookupRoute(path)) ? path : name;
     }
@@ -104,8 +109,9 @@ export default Component.extend({
           breadCrumbs.pushObject(breadCrumb);
         });
       } else {
+
         let breadCrumb = copy(getWithDefault(route, 'breadCrumb', {
-          title: classify(name)
+          title: titleize(name).replace('-', ' ')
         }));
 
         if (typeOf(breadCrumb) === 'null') {
