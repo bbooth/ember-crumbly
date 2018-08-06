@@ -8,6 +8,7 @@ import {inject as service} from '@ember/service';
 import titleize from 'ember-cli-string-helpers/utils/titleize';
 import Component from '@ember/component';
 import {bool, readOnly} from '@ember/object/computed';
+import { getOwner } from '@ember/application';
 
 export default Component.extend({
   layout,
@@ -70,7 +71,7 @@ export default Component.extend({
   },
 
   _lookupRoute(routeName) {
-    return this.container.lookup(`route:${routeName}`);
+    return getOwner(this).lookup(`route:${routeName}`);
   },
 
   _lookupBreadCrumb(routeNames, filteredRouteNames) {
