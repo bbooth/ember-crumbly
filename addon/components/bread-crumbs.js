@@ -103,7 +103,7 @@ export default Component.extend({
         if (typeOf(breadCrumb) === 'null') {
           return;
         } else {
-          if (isPresent(breadCrumb.path)Ember) {
+          if (isPresent(breadCrumb.path)) {
             path = breadCrumb.path;
           }
 
