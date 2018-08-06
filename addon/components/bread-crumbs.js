@@ -1,5 +1,5 @@
 import {get, computed, getWithDefault, setProperties} from '@ember/object';
-import A from '@ember/array';
+import {A} from '@ember/array';
 import {assert} from '@ember/debug';
 import {deprecate} from '@ember/application/deprecations';
 import {isPresent, typeOf} from '@ember/utils';
