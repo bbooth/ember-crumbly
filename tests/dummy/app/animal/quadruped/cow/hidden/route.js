@@ -1,7 +1,8 @@
-import Ember from 'ember';
-
-const { Route } = Ember;
+import Route from '@ember/router/route';
 
 export default Route.extend({
-  breadCrumb: null
+  init() {
+    this._super(arguments);
+    this.breadCrumb = null;
+  }
 });

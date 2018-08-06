@@ -1,13 +1,11 @@
-import Ember from 'ember';
-
-const {
-  Route,
-  get,
-  set
-} = Ember;
+import {get, set} from '@ember/object';
+import Route from '@ember/routing/route';
 
 export default Route.extend({
-  breadCrumb: {},
+  init() {
+    this._super(arguments);
+    this.breadCrumb = {};
+  },
 
   model(params) {
     let models = [

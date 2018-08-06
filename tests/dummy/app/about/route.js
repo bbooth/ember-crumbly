@@ -1,7 +1,10 @@
-import Ember from 'ember';
+import Route from '@ember/router/route';
 
-export default Ember.Route.extend({
-  breadCrumb: {
-    title: 'About Derek Zoolander'
+export default Route.extend({
+  init() {
+    this._super(arguments);
+    this.breadCrumb = {
+      title: 'About Derek Zoolander'
+    }
   }
 });

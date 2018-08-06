@@ -1,27 +1,9 @@
-import Ember from 'ember';
+import {get, computed, copy, getWithDefault, assert, deprecate, isPresent, typeOf, setProperties, getOwner, emberArray} from '@ember/objects';
 import layout from '../templates/components/bread-crumbs';
 import {inject as service} from '@ember/service';
 import titleize from 'ember-cli-string-helpers/utils/titleize';
-
-const {
-  get,
-  Component,
-  computed,
-  copy,
-  getWithDefault,
-  assert,
-  deprecate,
-  isPresent,
-  typeOf,
-  setProperties,
-  getOwner,
-  A: emberArray,
-  String: {classify}
-} = Ember;
-const {
-  bool,
-  readOnly
-} = computed;
+import Component from '@ember/component';
+import {bool, readOnly} from '@ember/object/computed';
 
 export default Component.extend({
   layout,
