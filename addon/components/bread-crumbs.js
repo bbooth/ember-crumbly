@@ -1,4 +1,8 @@
-import {get, computed, copy, getWithDefault, assert, deprecate, isPresent, typeOf, setProperties, getOwner, emberArray} from '@ember/object';
+import {get, computed, getWithDefault, setProperties} from '@ember/object';
+import A from '@ember/array';
+import {assert} from '@ember/debug';
+import {deprecate} from '@ember/application/deprecations';
+import {isPresent, typeOf} from '@ember/utils';
 import layout from '../templates/components/bread-crumbs';
 import {inject as service} from '@ember/service';
 import titleize from 'ember-cli-string-helpers/utils/titleize';
@@ -66,13 +70,13 @@ export default Component.extend({
   },
 
   _lookupRoute(routeName) {
-    return getOwner(this).lookup(`route:${routeName}`);
+    return this.container.lookup(`route:${routeName}`);
   },
 
   _lookupBreadCrumb(routeNames, filteredRouteNames) {
     const defaultLinkable = get(this, 'linkable');
     const pathLength = filteredRouteNames.length;
-    const breadCrumbs = emberArray();
+    const breadCrumbs = A();
 
     filteredRouteNames.map((name, index) => {
       let path = this._guessRoutePath(routeNames, name, index);
@@ -92,7 +96,7 @@ export default Component.extend({
         });
       } else {
 
-        let breadCrumb = copy(getWithDefault(route, 'breadCrumb', {
+        let breadCrumb = Object.assign(getWithDefault(route, 'breadCrumb', {
           title: titleize(name).replace('-', ' ')
         }));
 
@@ -115,6 +119,6 @@ export default Component.extend({
       }
     });
 
-    return emberArray(breadCrumbs.filter((breadCrumb) => typeOf(breadCrumb) !== 'undefined'));
+    return A(breadCrumbs.filter((breadCrumb) => typeOf(breadCrumb) !== 'undefined'));
   }
 });
