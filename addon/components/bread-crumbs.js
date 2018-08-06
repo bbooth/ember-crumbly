@@ -1,4 +1,4 @@
-import {get, computed, copy, getWithDefault, assert, deprecate, isPresent, typeOf, setProperties, getOwner, emberArray} from '@ember/objects';
+import {get, computed, copy, getWithDefault, assert, deprecate, isPresent, typeOf, setProperties, getOwner, emberArray} from '@ember/object';
 import layout from '../templates/components/bread-crumbs';
 import {inject as service} from '@ember/service';
 import titleize from 'ember-cli-string-helpers/utils/titleize';
